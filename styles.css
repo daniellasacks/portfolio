@@ -197,4 +197,35 @@ footer {
     section {
         padding: 3rem 1rem;
     }
+}
+
+/* Project Search */
+.project-search-container {
+    max-width: 600px;
+    margin: 0 auto 2rem;
+    padding: 0 1rem;
+}
+
+.project-search {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    font-size: 1rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 5px;
+    transition: border-color 0.3s ease;
+}
+
+.project-search:focus {
+    outline: none;
+    border-color: #007bff;
+}
+
+.project-search::placeholder {
+    color: #999;
+}
+
+/* Active Navigation Link */
+nav ul li a.active {
+    color: #007bff;
+    font-weight: 600;
 } 
