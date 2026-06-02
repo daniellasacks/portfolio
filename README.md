@@ -1,50 +1,82 @@
-# Portfolio Website
+# AI Resume SaaS (Portfolio Project)
 
-A modern, responsive portfolio website built with HTML, CSS, and JavaScript.
+Production-style, AI-powered resume builder you can demo in technical interviews: **auth**, **structured resume JSON**, **immutable version history**, **job targets**, **ATS scoring + recommendations**, **template selection**, and **PDF/DOCX export**.
 
-## Features
+## What this demonstrates (interview talking points)
 
-- Responsive design that works on all devices
-- Smooth scrolling navigation
-- Project showcase section
-- Contact section with social media links
-- Modern and clean UI
+- **Domain modeling**: `Resume` container + immutable `ResumeVersion` snapshots + derived versions per `JobTarget`
+- **AI reliability**: schema-validated JSON outputs; safe demo fallback if `OPENAI_API_KEY` is missing
+- **File handling**: PDF/DOCX upload and text extraction
+- **Real deliverables**: server-side PDF/DOCX generation and one-click downloads
+- **Production UX**: onboarding, loading states, error handling, responsive layout, notifications
 
-## Setup
+## Tech Stack
 
-1. Clone this repository
-2. Open `index.html` in your browser to view the website locally
+- **Web**: React + TypeScript + Tailwind CSS
+- **API**: Node.js + NestJS
+- **DB**: PostgreSQL + Prisma
+- **AI**: OpenAI API
 
-## Customization
+## Monorepo Layout
 
-1. Replace the placeholder content in `index.html` with your own information
-2. Add your project screenshots to the `images` directory
-3. Update the social media links in the contact section
-4. Modify the colors and styling in `styles.css` to match your preferences
+- `apps/api`: NestJS backend
+- `apps/web`: React frontend
+- `packages/shared`: shared types/validation helpers
+- `infra`: docker compose + local infra configs
 
-## Deployment to GitHub Pages
+## Key product flows
 
-1. Create a new repository on GitHub
-2. Push your code to the repository:
-   ```bash
-   git init
-   git add .
-   git commit -m "Initial commit"
-   git remote add origin <your-repository-url>
-   git push -u origin main
-   ```
-3. Go to your repository settings on GitHub
-4. Scroll down to the "GitHub Pages" section
-5. Select the main branch as the source
-6. Your site will be published at `https://<your-username>.github.io/<repository-name>`
+- **Create base resume**: upload → extract structured JSON → save as Version 1 (or create a blank resume and edit)
+- **Job targets**: store each job description (role/company/industry) for tailoring and ATS scoring
+- **Versions**: every save creates a new immutable version; compare versions via structured JSON diff paths
+- **ATS**: run evaluation against a job target → score + missing keywords + recommendations saved
+- **Export**: download PDF/DOCX for any version
 
-## Technologies Used
+## Getting Started (local)
 
-- HTML5
-- CSS3
-- JavaScript
-- Font Awesome Icons
+1. Start Postgres
 
-## License
+```bash
+cd infra
+docker compose up -d
+```
 
-This project is open source and available under the [MIT License](LICENSE). 
+If you don't have Docker, install Postgres locally and set `DATABASE_URL`.
+
+2. Install deps (workspace root)
+
+```bash
+npm install
+```
+
+3. Create API env
+
+```bash
+cp apps/api/.env.example apps/api/.env
+```
+
+4. Run Prisma (once DB is up)
+
+```bash
+cd apps/api
+npx prisma migrate dev
+```
+
+5. Run API + Web
+
+```bash
+npm run dev
+```
+
+## Environment Variables
+
+- `OPENAI_API_KEY`
+- `DATABASE_URL`
+- `JWT_SECRET`
+
+## Docs
+
+- `ARCHITECTURE.md`
+- `apps/api/README.md`
+- `apps/web/README.md`
+
