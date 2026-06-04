@@ -147,14 +147,25 @@ h2 {
 
 .project-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 2.5rem;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
     max-width: 1200px;
     margin: 0 auto;
+    align-items: stretch;
+}
+
+@media (max-width: 1024px) {
+    .project-grid {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
 }
 
 .project-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
     background: #ffffff;
+    border: 1px solid #e9ecef;
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
@@ -164,54 +175,63 @@ h2 {
 
 .project-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
 }
 
-.project-card--featured {
-    border: 1px solid #dfe6e9;
-    background: linear-gradient(180deg, #ffffff 0%, #f8f9fa 100%);
+.project-info {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-height: 0;
+}
+
+.project-info h3 {
+    margin-bottom: 0.35rem;
+    color: #2d3436;
+    font-weight: 600;
+    font-size: 1.3rem;
 }
 
 .project-tagline {
-    font-size: 0.9rem;
+    font-size: 0.875rem;
     font-weight: 600;
     color: #636e72;
-    margin-bottom: 0.75rem;
+    margin-bottom: 0.85rem;
+}
+
+.project-desc {
+    color: #636e72;
+    margin-bottom: 1.25rem;
+    line-height: 1.65;
+    font-size: 0.95rem;
+    flex: 1;
+    min-height: 4.5rem;
 }
 
 .tech-stack {
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
-    margin-bottom: 1.25rem;
+    margin-bottom: 1.5rem;
+    min-height: 1.75rem;
 }
 
 .tech-stack span {
     font-size: 0.75rem;
     font-weight: 500;
-    padding: 0.25rem 0.6rem;
+    padding: 0.3rem 0.65rem;
     border-radius: 999px;
     background: #f1f2f6;
     color: #2d3436;
-}
-
-.project-info h3 {
-    margin-bottom: 1rem;
-    color: #2d3436;
-    font-weight: 600;
-    font-size: 1.3rem;
-}
-
-.project-info p {
-    color: #636e72;
-    margin-bottom: 1.5rem;
-    line-height: 1.7;
+    border: 1px solid #e9ecef;
 }
 
 .project-links {
     display: flex;
-    gap: 1rem;
-    margin-top: 1.5rem;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: auto;
+    padding-top: 0.25rem;
 }
 
 .btn {
