@@ -7,12 +7,21 @@
     <meta name="description" content="CreditKeeper – Never lose a store credit again. Manage store credits, vouchers, and refund receipts in one digital wallet." />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Heebo:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Heebo:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
     <title>CreditKeeper</title>
-    <script type="module" crossorigin src="/portfolio/CreditKeeper/assets/index-d84V9TZz.js"></script>
-    <link rel="stylesheet" crossorigin href="/portfolio/CreditKeeper/assets/index-DM33mY-X.css">
+    <script type="module" crossorigin src="/portfolio/CreditKeeper/assets/index-CXnLOcvp.js"></script>
+    <link rel="stylesheet" crossorigin href="/portfolio/CreditKeeper/assets/index-D0DhJk9V.css">
   </head>
   <body>
+    <script>
+      (function () {
+        var r = sessionStorage.getItem('ck-spa-redirect');
+        if (r) {
+          sessionStorage.removeItem('ck-spa-redirect');
+          history.replaceState(null, '', r);
+        }
+      })();
+    </script>
     <div id="root"></div>
   </body>
 </html>

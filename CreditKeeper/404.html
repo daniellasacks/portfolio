@@ -2,10 +2,20 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <title>CreditKeeper</title>
     <script>
-      sessionStorage.redirect = location.href;
+      sessionStorage.setItem(
+        'ck-spa-redirect',
+        location.pathname + location.search + location.hash
+      );
+      var marker = '/CreditKeeper';
+      var i = location.pathname.indexOf(marker);
+      if (i >= 0) {
+        location.replace(location.pathname.slice(0, i + marker.length + 1));
+      } else {
+        location.replace('./');
+      }
     </script>
-    <meta http-equiv="refresh" content="0;URL='./'" />
   </head>
   <body></body>
 </html>
