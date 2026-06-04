@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Redirecting…</title>
+    <script>
+      (function () {
+        var path = location.pathname;
+        var search = location.search;
+        var hash = location.hash;
+        var ck = '/CreditKeeper';
+        var i = path.indexOf(ck);
+        if (i >= 0) {
+          sessionStorage.setItem('ck-spa-redirect', path + search + hash);
+          location.replace(path.slice(0, i + ck.length + 1) + search + hash);
+          return;
+        }
+        location.replace('/portfolio/');
+      })();
+    </script>
+  </head>
+  <body></body>
+</html>
