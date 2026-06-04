@@ -8,12 +8,19 @@
         'ck-spa-redirect',
         location.pathname + location.search + location.hash
       );
-      var marker = '/CreditKeeper';
-      var i = location.pathname.indexOf(marker);
+      var path = location.pathname;
+      var marker = '/portfolio/CreditKeeper';
+      var i = path.indexOf(marker);
       if (i >= 0) {
-        location.replace(location.pathname.slice(0, i + marker.length + 1));
+        location.replace(path.slice(0, i + marker.length + 1) + location.search + location.hash);
       } else {
-        location.replace('./');
+        var legacy = '/CreditKeeper';
+        var j = path.indexOf(legacy);
+        if (j >= 0) {
+          location.replace(path.slice(0, j + legacy.length + 1) + location.search + location.hash);
+        } else {
+          location.replace('./');
+        }
       }
     </script>
   </head>
