@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Vacation Management System</title>
+    <script>
+      sessionStorage.setItem(
+        'vacation-spa-redirect',
+        location.pathname + location.search + location.hash
+      );
+      var path = location.pathname;
+      var marker = '/portfolio/VacationManagement';
+      var i = path.indexOf(marker);
+      if (i >= 0) {
+        location.replace(path.slice(0, i + marker.length + 1) + location.search + location.hash);
+      } else {
+        location.replace('./');
+      }
+    </script>
+  </head>
+  <body></body>
+</html>
