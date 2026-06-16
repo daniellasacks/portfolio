@@ -192,6 +192,20 @@ h2 {
     font-size: 1.3rem;
 }
 
+.project-logo {
+    width: 44px;
+    height: 44px;
+    margin-bottom: 0.7rem;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f3f6fb;
+    border: 1px solid #e1e8f2;
+    color: #34435f;
+    font-size: 1.15rem;
+}
+
 .project-tagline {
     font-size: 0.875rem;
     font-weight: 600;
@@ -201,44 +215,11 @@ h2 {
 
 .project-desc {
     color: #636e72;
-    margin-bottom: 1rem;
+    margin-bottom: 1.25rem;
     line-height: 1.65;
     font-size: 0.95rem;
+    flex: 1;
     min-height: 4.5rem;
-}
-
-.project-case-study {
-    margin-bottom: 1.1rem;
-    padding: 0.9rem;
-    border-radius: 10px;
-    background: #f8fafc;
-    border: 1px solid #e6ecf5;
-}
-
-.case-row + .case-row {
-    margin-top: 0.65rem;
-    padding-top: 0.65rem;
-    border-top: 1px dashed #d9e1ec;
-}
-
-.case-label {
-    display: inline-block;
-    font-size: 0.72rem;
-    font-weight: 700;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    color: #2d3436;
-    background: #eaf2ff;
-    border: 1px solid #d5e6ff;
-    border-radius: 999px;
-    padding: 0.2rem 0.55rem;
-    margin-bottom: 0.35rem;
-}
-
-.case-row p {
-    font-size: 0.86rem;
-    color: #56606f;
-    line-height: 1.55;
 }
 
 .tech-stack {
@@ -318,6 +299,9 @@ h2 {
 .social-links a[href*="facebook.com"] {
     color: #1877f2;
 }
+.social-links a[href*="facebook.com"] i {
+    color: #1877f2 !important;
+}
 
 .social-links a[href*="instagram.com"] {
     color: #e4405f;
@@ -326,11 +310,15 @@ h2 {
 .social-links a[href*="linkedin.com"] {
     color: #0a66c2;
 }
+.social-links a[href*="linkedin.com"] i {
+    color: #0a66c2 !important;
+}
 
 .social-links a[href*="instagram.com"] i {
     background: linear-gradient(45deg, #f9ce34 0%, #ee2a7b 45%, #6228d7 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    color: transparent !important;
 }
 
 /* Footer */
