@@ -314,8 +314,25 @@ h2 {
 }
 
 .social-links a:hover {
-    color: #636e72;
     transform: translateY(-3px);
+}
+
+.social-links a[href*="facebook.com"] {
+    color: #1877f2;
+}
+
+.social-links a[href*="instagram.com"] {
+    color: #e4405f;
+}
+
+.social-links a[href*="linkedin.com"] {
+    color: #0a66c2;
+}
+
+.social-links a[href*="instagram.com"] i {
+    background: linear-gradient(45deg, #f9ce34 0%, #ee2a7b 45%, #6228d7 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 /* Footer */
