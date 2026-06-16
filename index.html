@@ -3,13 +3,406 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daniella Azar - Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Daniella Azar - Full Stack Developer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background: #fafafa;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        header {
+            background: white;
+            padding: 1.5rem 2rem;
+            border-bottom: 1px solid #f0f0f0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 20px;
+            letter-spacing: -0.5px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 3rem;
+        }
+
+        nav a {
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #6366f1;
+            transition: width 0.3s;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        section {
+            padding: 5rem 0;
+        }
+
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            padding: 6rem 2rem;
+        }
+
+        .hero-content h1 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: -1px;
+            line-height: 1.1;
+        }
+
+        .hero-tagline {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 2rem;
+            font-weight: 500;
+        }
+
+        .hero-description {
+            font-size: 16px;
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 12px 32px;
+            background: #6366f1;
+            color: white;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.2);
+        }
+
+        .cta-button:hover {
+            background: #4f46e5;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(99, 102, 241, 0.3);
+        }
+
+        .hero-image {
+            position: relative;
+            height: 450px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .section-header {
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.5px;
+        }
+
+        .section-subtitle {
+            font-size: 16px;
+            color: #999;
+            font-weight: 400;
+        }
+
+        .about-content {
+            max-width: 800px;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        .about-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s;
+            border: 1px solid #f5f5f5;
+        }
+
+        .project-card:hover {
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+            transform: translateY(-4px);
+        }
+
+        .project-header {
+            padding: 2rem;
+            background: linear-gradient(135deg, #f5f7fa 0%, #fafbfc 100%);
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .project-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: #1a1a1a;
+        }
+
+        .project-subtitle {
+            font-size: 13px;
+            color: #888;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .project-content {
+            padding: 2rem;
+        }
+
+        .project-description {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.7rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .tech-tag {
+            display: inline-block;
+            padding: 5px 14px;
+            background: #f0f3ff;
+            color: #6366f1;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+            border: 1px solid #e0e7ff;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #f0f0f0;
+        }
+
+        .project-links a {
+            flex: 1;
+            padding: 10px 16px;
+            text-align: center;
+            font-size: 13px;
+            font-weight: 600;
+            border-radius: 6px;
+            transition: all 0.3s;
+            background: #f5f5f5;
+            color: #333;
+        }
+
+        .project-links a:first-child {
+            background: #6366f1;
+            color: white;
+        }
+
+        .project-links a:first-child:hover {
+            background: #4f46e5;
+        }
+
+        .project-links a:last-child:hover {
+            background: #e8e8e8;
+        }
+
+        .contact-section {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            color: white;
+            border-radius: 16px;
+            padding: 4rem 2rem;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .contact-section h2 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .contact-section p {
+            font-size: 16px;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            line-height: 1.7;
+        }
+
+        .email-link {
+            display: inline-block;
+            padding: 12px 32px;
+            background: white;
+            color: #6366f1;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 14px;
+            transition: all 0.3s;
+            margin-bottom: 2rem;
+        }
+
+        .email-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+
+        .social-links a {
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            font-weight: 600;
+            transition: all 0.3s;
+            font-size: 16px;
+        }
+
+        .social-links a:hover {
+            background: white;
+            color: #6366f1;
+            transform: scale(1.1);
+        }
+
+        footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            color: #999;
+            font-size: 13px;
+            border-top: 1px solid #f0f0f0;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 1.5rem;
+            }
+
+            nav a {
+                font-size: 12px;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+                padding: 3rem 2rem;
+            }
+
+            .hero-content h1 {
+                font-size: 32px;
+            }
+
+            .hero-image {
+                height: 300px;
+            }
+
+            section {
+                padding: 3rem 0;
+            }
+
+            .section-title {
+                font-size: 28px;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .contact-section {
+                padding: 2.5rem 1.5rem;
+            }
+
+            .contact-section h2 {
+                font-size: 24px;
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
         <nav>
+            <div class="logo">DA</div>
             <ul>
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
@@ -19,156 +412,173 @@
         </nav>
     </header>
 
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <img src="assets/daniella.jpg" alt="Daniella Azar" class="hero-photo">
-            <h1>Daniella Azar</h1>
-            <p>Full Stack Developer | Problem Solver | Creative Thinker</p>
-        </div>
-    </section>
-
-    <section id="about" class="about">
-        <h2>About Me</h2>
-        <div class="about-content">
-            <p>I'm a passionate developer with a keen eye for creating beautiful and functional web applications. I love turning complex problems into simple, beautiful, and intuitive solutions.</p>
-        </div>
-    </section>
-
-    <section id="projects" class="projects">
-        <h2>My Projects</h2>
-        <div class="project-grid">
-            <article class="project-card">
-                <div class="project-info">
-                    <h3>Vacation Management System</h3>
-                    <p class="project-tagline">Full-stack travel platform with admin dashboard</p>
-                    <p class="project-desc">
-                        Browse and like dream destinations, filter by status, and manage vacations with
-                        JWT auth, image uploads, admin CRUD, analytics charts, and CSV export.
-                    </p>
-                    <div class="tech-stack">
-                        <span>React</span>
-                        <span>TypeScript</span>
-                        <span>Node.js</span>
-                        <span>Express</span>
-                        <span>MySQL</span>
-                        <span>JWT</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://daniellasacks.github.io/portfolio/VacationManagement/" class="btn" target="_blank" rel="noopener">Live Demo</a>
-                        <a href="https://github.com/daniellasacks/Vacation-Management-System" class="btn btn-secondary" target="_blank" rel="noopener">GitHub</a>
-                    </div>
-                </div>
-            </article>
-
-            <article class="project-card">
-                <div class="project-info">
-                    <h3>CreditKeeper</h3>
-                    <p class="project-tagline">AI-powered digital store credit wallet</p>
-                    <p class="project-desc">
-                        Swipeable glass wallet cards with scannable QR codes, scan-to-redeem checkout flow,
-                        redemption history, and a production Express + MongoDB + Firebase backend.
-                    </p>
-                    <div class="tech-stack">
-                        <span>React</span>
-                        <span>TypeScript</span>
-                        <span>Node.js</span>
-                        <span>Express</span>
-                        <span>MongoDB</span>
-                        <span>Firebase</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://daniellasacks.github.io/portfolio/CreditKeeper/" class="btn" target="_blank" rel="noopener">Live Demo</a>
-                        <a href="https://github.com/daniellasacks/CreditKeeper" class="btn btn-secondary" target="_blank" rel="noopener">GitHub</a>
-                    </div>
-                </div>
-            </article>
-
-            <article class="project-card">
-                <div class="project-info">
-                    <h3>AI Career Profile Builder</h3>
-                    <p class="project-tagline">AI-powered CV builder — interview wizard to PDF</p>
-                    <p class="project-desc">
-                        Guided interview flow, AI CV generation, job tailoring, ATS scoring,
-                        split-screen editor, and PDF export — full-stack SaaS portfolio app.
-                    </p>
-                    <div class="tech-stack">
-                        <span>React</span>
-                        <span>TypeScript</span>
-                        <span>NestJS</span>
-                        <span>PostgreSQL</span>
-                        <span>Prisma</span>
-                        <span>OpenAI</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://daniellasacks.github.io/AI-RESUME-BUILDER/" class="btn" target="_blank" rel="noopener">Live Demo</a>
-                        <a href="https://github.com/daniellasacks/AI-RESUME-BUILDER" class="btn btn-secondary" target="_blank" rel="noopener">GitHub</a>
-                    </div>
-                </div>
-            </article>
-
-            <article class="project-card">
-                <div class="project-info">
-                    <h3>Coinella</h3>
-                    <p class="project-tagline">Real-time cryptocurrency tracking web app</p>
-                    <p class="project-desc">
-                        Track live crypto prices, explore market data, and review portfolio-style reports
-                        with a responsive multi-page frontend.
-                    </p>
-                    <div class="tech-stack">
-                        <span>HTML</span>
-                        <span>CSS</span>
-                        <span>JavaScript</span>
-                        <span>REST APIs</span>
-                        <span>Chart.js</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://daniellasacks.github.io/Coinella/" class="btn" target="_blank" rel="noopener">Live Demo</a>
-                        <a href="https://github.com/daniellasacks/Coinella" class="btn btn-secondary" target="_blank" rel="noopener">GitHub</a>
-                    </div>
-                </div>
-            </article>
-
-            <article class="project-card">
-                <div class="project-info">
-                    <h3>My Task Board</h3>
-                    <p class="project-tagline">Interactive task management app</p>
-                    <p class="project-desc">
-                        Create, organize, and pin tasks with due dates on a drag-and-drop style board
-                        built for day-to-day productivity.
-                    </p>
-                    <div class="tech-stack">
-                        <span>HTML</span>
-                        <span>CSS</span>
-                        <span>JavaScript</span>
-                        <span>Local Storage</span>
-                        <span>DOM APIs</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://daniellasacks.github.io/My-Tasks-Blackboard/" class="btn" target="_blank" rel="noopener">Live Demo</a>
-                        <a href="https://github.com/daniellasacks/My-Tasks-Blackboard" class="btn btn-secondary" target="_blank" rel="noopener">GitHub</a>
-                    </div>
-                </div>
-            </article>
-
-        </div>
-    </section>
-
-    <section id="contact" class="contact">
-        <h2>Get In Touch</h2>
-        <div class="contact-content">
-            <div class="social-links">
-                <a href="https://www.facebook.com/daniella.sacks" target="_blank" rel="noopener"><i class="fab fa-facebook"></i></a>
-                <a href="https://www.instagram.com/daniellaazarsacks/" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
-                <a href="https://www.linkedin.com/in/daniella-azar-sacks-6a980b17a/" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i></a>
+    <main class="container">
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1>Daniella Azar</h1>
+                <p class="hero-tagline">Full Stack Developer | Problem Solver | Creative Thinker</p>
+                <p class="hero-description">I'm passionate about creating beautiful and functional web applications. I love turning complex problems into simple, beautiful, and intuitive solutions.</p>
+                <a href="#projects" class="cta-button">View My Work</a>
             </div>
-            <p>Feel free to reach out to me at <a href="mailto:daniellasacks138@gmail.com">daniellasacks138@gmail.com</a></p>
-        </div>
-    </section>
+            <div class="hero-image">
+                <img src="https://daniellasacks.github.io/portfolio/assets/daniella.jpg" alt="Daniella Azar">
+            </div>
+        </section>
+
+        <section id="about">
+            <div class="section-header">
+                <h2 class="section-title">About Me</h2>
+            </div>
+            <div class="about-content">
+                <p>I'm a passionate developer with a keen eye for creating beautiful and functional web applications. I love turning complex problems into simple, beautiful, and intuitive solutions.</p>
+                <p>With expertise in modern technologies and a focus on user experience, I build full-stack applications that are not only powerful but also a joy to use. Every project is an opportunity to learn something new and push my technical boundaries.</p>
+            </div>
+        </section>
+
+        <section id="projects">
+            <div class="section-header">
+                <h2 class="section-title">My Projects</h2>
+                <p class="section-subtitle">A collection of projects showcasing my skills and passion for development</p>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3 class="project-title">Vacation Management System</h3>
+                        <p class="project-subtitle">Full-Stack Travel Platform</p>
+                    </div>
+                    <div class="project-content">
+                        <p class="project-description">Browse and like dream destinations, filter by status, and manage vacations with JWT auth, image uploads, admin CRUD, analytics charts, and CSV export.</p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">TypeScript</span>
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">Express</span>
+                            <span class="tech-tag">MySQL</span>
+                            <span class="tech-tag">JWT</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://daniellasacks.github.io/portfolio/VacationManagement/" target="_blank" rel="noopener noreferrer">Live Demo</a>
+                            <a href="https://github.com/daniellasacks/Vacation-Management-System" target="_blank" rel="noopener noreferrer">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3 class="project-title">CreditKeeper</h3>
+                        <p class="project-subtitle">AI-Powered Digital Wallet</p>
+                    </div>
+                    <div class="project-content">
+                        <p class="project-description">Swipeable glass wallet cards with scannable QR codes, scan-to-redeem checkout flow, redemption history, and a production Express + MongoDB + Firebase backend.</p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">TypeScript</span>
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">Express</span>
+                            <span class="tech-tag">MongoDB</span>
+                            <span class="tech-tag">Firebase</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://daniellasacks.github.io/portfolio/CreditKeeper/" target="_blank" rel="noopener noreferrer">Live Demo</a>
+                            <a href="https://github.com/daniellasacks/CreditKeeper" target="_blank" rel="noopener noreferrer">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3 class="project-title">AI Career Profile Builder</h3>
+                        <p class="project-subtitle">Interview Wizard to PDF</p>
+                    </div>
+                    <div class="project-content">
+                        <p class="project-description">Guided interview flow, AI CV generation, job tailoring, ATS scoring, split-screen editor, and PDF export - full-stack SaaS portfolio app.</p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">TypeScript</span>
+                            <span class="tech-tag">NestJS</span>
+                            <span class="tech-tag">PostgreSQL</span>
+                            <span class="tech-tag">Prisma</span>
+                            <span class="tech-tag">OpenAI</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://daniellasacks.github.io/AI-RESUME-BUILDER/" target="_blank" rel="noopener noreferrer">Live Demo</a>
+                            <a href="https://github.com/daniellasacks/AI-RESUME-BUILDER" target="_blank" rel="noopener noreferrer">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3 class="project-title">Coinella</h3>
+                        <p class="project-subtitle">Crypto Tracking Web App</p>
+                    </div>
+                    <div class="project-content">
+                        <p class="project-description">Track live crypto prices, explore market data, and review portfolio-style reports with a responsive multi-page frontend.</p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">HTML</span>
+                            <span class="tech-tag">CSS</span>
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">REST APIs</span>
+                            <span class="tech-tag">Chart.js</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://daniellasacks.github.io/Coinella/" target="_blank" rel="noopener noreferrer">Live Demo</a>
+                            <a href="https://github.com/daniellasacks/Coinella" target="_blank" rel="noopener noreferrer">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3 class="project-title">My Task Board</h3>
+                        <p class="project-subtitle">Task Management App</p>
+                    </div>
+                    <div class="project-content">
+                        <p class="project-description">Create, organize, and pin tasks with due dates on a drag-and-drop style board built for day-to-day productivity.</p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">HTML</span>
+                            <span class="tech-tag">CSS</span>
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">Local Storage</span>
+                            <span class="tech-tag">DOM APIs</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://daniellasacks.github.io/My-Tasks-Blackboard/" target="_blank" rel="noopener noreferrer">Live Demo</a>
+                            <a href="https://github.com/daniellasacks/My-Tasks-Blackboard" target="_blank" rel="noopener noreferrer">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <div class="contact-section">
+                <h2>Get In Touch</h2>
+                <p>I'm always interested in hearing about new projects and opportunities. Feel free to reach out!</p>
+                <a href="mailto:daniellaazar08@gmail.com" class="email-link" target="_blank" rel="noopener noreferrer">Send Me an Email</a>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/daniella-azar-sacks-6a980b17a/" title="LinkedIn" target="_blank" rel="noopener noreferrer">📱</a>
+                    <a href="https://github.com/daniellasacks" title="GitHub" target="_blank" rel="noopener noreferrer">⚙️</a>
+                    <a href="https://www.facebook.com/daniella.sacks" title="Facebook" target="_blank" rel="noopener noreferrer">👤</a>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <footer>
-        <p>&copy; 2025 Daniella Azar. All rights reserved.</p>
+        <p>© 2025 Daniella Azar. All rights reserved.</p>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
