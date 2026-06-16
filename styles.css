@@ -147,8 +147,8 @@ h2 {
 
 .project-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 1.15rem;
     max-width: 1200px;
     margin: 0 auto;
     align-items: stretch;
@@ -170,7 +170,7 @@ h2 {
     overflow: hidden;
     box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    padding: 2rem;
+    padding: 1.2rem;
 }
 
 .project-card:hover {
@@ -189,13 +189,14 @@ h2 {
     margin-bottom: 0.35rem;
     color: #2d3436;
     font-weight: 600;
-    font-size: 1.3rem;
+    font-size: 1.02rem;
+    line-height: 1.3;
 }
 
 .project-logo {
-    width: 44px;
-    height: 44px;
-    margin-bottom: 0.7rem;
+    width: 36px;
+    height: 36px;
+    margin-bottom: 0.55rem;
     border-radius: 12px;
     display: flex;
     align-items: center;
@@ -203,37 +204,37 @@ h2 {
     background: #f3f6fb;
     border: 1px solid #e1e8f2;
     color: #34435f;
-    font-size: 1.15rem;
+    font-size: 0.95rem;
 }
 
 .project-tagline {
-    font-size: 0.875rem;
+    font-size: 0.76rem;
     font-weight: 600;
     color: #636e72;
-    margin-bottom: 0.85rem;
+    margin-bottom: 0.65rem;
 }
 
 .project-desc {
     color: #636e72;
-    margin-bottom: 1.25rem;
+    margin-bottom: 0.8rem;
     line-height: 1.65;
-    font-size: 0.95rem;
+    font-size: 0.82rem;
     flex: 1;
-    min-height: 4.5rem;
+    min-height: 7.2rem;
 }
 
 .tech-stack {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-bottom: 1.5rem;
+    gap: 0.35rem;
+    margin-bottom: 0.9rem;
     min-height: 1.75rem;
 }
 
 .tech-stack span {
-    font-size: 0.75rem;
+    font-size: 0.66rem;
     font-weight: 500;
-    padding: 0.3rem 0.65rem;
+    padding: 0.2rem 0.5rem;
     border-radius: 999px;
     background: #f1f2f6;
     color: #2d3436;
@@ -243,19 +244,19 @@ h2 {
 .project-links {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.75rem;
+    gap: 0.45rem;
     padding-top: 0.25rem;
 }
 
 .btn {
     display: inline-block;
-    padding: 0.7rem 1.5rem;
+    padding: 0.5rem 0.65rem;
     background-color: #2d3436;
     color: white;
     text-decoration: none;
-    border-radius: 6px;
+    border-radius: 5px;
     font-weight: 500;
-    font-size: 0.95rem;
+    font-size: 0.74rem;
     transition: all 0.3s ease;
 }
 
